@@ -13,6 +13,7 @@ public class Run
         System.out.println("Welcome!");
 
         int checks = 1;
+        boolean correctLogin = false; 
         while(checks <= 3)
         {
             System.out.println("Please enter your username:");
@@ -23,6 +24,7 @@ public class Run
             if(nick.correctLogin(username, password) || dawit.correctLogin(username, password) || jeremy.correctLogin(username, password))
             {
                 System.out.println("Welcome " + username);
+                correctLogin = true;
                 break;
             }
             else
@@ -30,6 +32,12 @@ public class Run
                 System.out.println("Incorrect username or password");
             }
             checks++;
+        }
+
+        if(correctLogin == false)
+        {
+            System.out.println("3 incorrect login attempts, you are locked out!");
+            System.exit(0);
         }
 
 
