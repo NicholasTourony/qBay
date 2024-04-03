@@ -41,4 +41,20 @@ public class User
     {
         itemsForSale.remove(item);
     }
+
+    public void printCart()
+    {
+        for (int x = 0; x < cart.size(); x++)
+        {
+            cart.get(x).printItemAndPrice();;
+        }
+    }
+
+    public void printItemsForSale()
+    {
+        for (int x = 0; x < itemsForSale.size(); x++)
+        {
+            itemsForSale.get(x).printItemCategoryAndPrice();
+        }
+    }
 }
