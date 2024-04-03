@@ -20,9 +20,26 @@ public class Run
             String username = scan.nextLine();
             System.out.println("Please enter your password.");
             
+            User signedInUser;
+
             String password = scan.nextLine();
-            if(nick.correctLogin(username, password) || dawit.correctLogin(username, password) || jeremy.correctLogin(username, password))
+            if(nick.correctLogin(username, password))
             {
+                signedInUser = nick;
+                System.out.println("Welcome " + username);
+                correctLogin = true;
+                break;
+            }
+            else if(dawit.correctLogin(username, password))
+            {
+                signedInUser = dawit;
+                System.out.println("Welcome " + username);
+                correctLogin = true;
+                break;
+            }
+            else if(jeremy.correctLogin(username, password))
+            {
+                signedInUser = jeremy;
                 System.out.println("Welcome " + username);
                 correctLogin = true;
                 break;
