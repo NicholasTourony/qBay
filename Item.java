@@ -12,4 +12,19 @@ public class Item
         this.price = price;
         this.seller = seller;
     }
+
+    public void printItemAndPrice()
+    {
+        System.out.println("Item: " + name + " Price: $" + price);
+    }
+
+    public void printItemCategoryAndPrice()
+    {
+        System.out.println("Item: " + name + "Category: " + " Price: $" + price);
+    }
+
+    public void printItem()
+    {
+        System.out.println("Item: " + name + " Category: " + category + " Seller: " + seller.name + " Seller Email: " + seller.email +  " Price: $" + price);
+    }
 }
