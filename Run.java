@@ -91,7 +91,7 @@ public class Run
                System.out.println("Would you like to\n1.Add item to cart\n2.See more information");
                int decision = scan.nextInt();// asking if they want to add item to cart
                    if(decision == 1){
-                   signedInUser.addItemToCart(item1);
+                   signedInUser.addItemToCart(itemsDisplay.get(item-1));
                     } else{
                     itemsDisplay.get(item-1).printItem();
             }
@@ -123,6 +123,12 @@ public class Run
                 if(checkout.equals("Yes"))
                 {
                     System.out.println("Your total is: $" + cartPrice + "\nThank you for shopping with qBay!");
+                    ArrayList<Item> cart = signedInUser.cart;
+                    for(int x = 0; x < cart.size(); x++)
+                    {
+                        itemsDisplay.remove(cart.get(x));
+                    }
+                    signedInUser.cart = new ArrayList<Item>();
                 }
                 else if(checkout.equals("No"))
                 {
@@ -133,7 +139,7 @@ public class Run
                     System.out.println("Invalid input");
                 }
             }else if( option == 4){
-                System.out.println("Logging out...");
+                System.out.println("Thank you for using qBay!!!\nLogging out...");
                 System.exit(0);
             }else{
                 System.out.println("Not a valid option");
