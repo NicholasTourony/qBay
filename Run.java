@@ -88,8 +88,23 @@ public class Run
                         signedInUser.addItemToCart(item1);
                     }
                 }
-            // }else if (option == 2){
-            //     sell();
+            }else if (option == 2){
+                // sell option
+                int selection = 0;
+                while (selection != 1 || selection != 2)
+                {
+                    System.out.println("Would you like to see your current items for sale (1) or add a new item to sell (2)");
+                    selection = scan.nextInt();
+    
+                    if (selection == 1)
+                    {
+                        signedInUser.printItemsForSale();
+                    }
+                    else if (selection == 2)
+                    {
+                        
+                    }
+                }
             }else if( option == 3){
                 System.out.println("Would you like to checkout?\nYes or No");
                 signedInUser.printCart();
