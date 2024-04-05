@@ -84,6 +84,7 @@ public class Run
             int option = scan.nextInt();
             scan.nextLine();
             if(option == 1){
+                System.out.println("Please select an item:");
                 itemDisplay(itemsDisplay);
                 int item = scan.nextInt();
                 scan.nextLine();
@@ -94,7 +95,8 @@ public class Run
                    signedInUser.addItemToCart(item1);
                     } else{
                     itemsDisplay.get(item-1).printItem();
-            }
+                    }
+                    
                 
             }else if (option == 2){
                 // sell option
