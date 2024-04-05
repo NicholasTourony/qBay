@@ -101,10 +101,12 @@ public class Run
                    signedInUser.addItemToCart(itemsDisplay.get(item-1));
                     } else if (decision == 2){
                     itemsDisplay.get(item-1).printItem();
-                    System.out.println("Would You like to add Item to cart(1)");
+                    System.out.println("Would You like to add Item to cart(1). Otherwise, press (2)");
                         int add = scan.nextInt();
                         if(add == 1){
                             signedInUser.addItemToCart(itemsDisplay.get(item-1));
+                        } else if(add == 2){
+
                         }
                     }
                     if(decision == 3){
