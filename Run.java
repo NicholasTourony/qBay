@@ -162,6 +162,9 @@ public class Run
                     for(int x = 0; x < cart.size(); x++)
                     {
                         itemsDisplay.remove(cart.get(x));
+                        dawit.removeItemForSales(cart.get(x));
+                        nick.removeItemForSales(cart.get(x));
+                        jeremy.removeItemForSales(cart.get(x));
                     }
                     signedInUser.cart = new ArrayList<Item>();
                 }
