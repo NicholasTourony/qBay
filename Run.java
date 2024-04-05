@@ -79,10 +79,8 @@ public class Run
             System.out.println("3 incorrect login attempts, you are locked out!");
             System.exit(0);
         }
-
-
         
-        System.out.println("what would you like to do\n1.Buy\n2.Sell\n3.Cart ");
+        System.out.println("what would you like to do\n1.Buy\n2.Sell\n3.Cart\n4.Logout");
         int option = scan.nextInt();
         if(option == 1){
             System.out.println("What would you like to buy");
@@ -95,15 +93,34 @@ public class Run
                 } else{
                     itemsDisplay.get(item-1).printItem();
                 }
-            } 
-        // }else if (option == 2){
-        //     sell();
-        // }else if( option == 3){
-        //     cart();     
-        // } else{
-        //     System.out.println("Not a valid option");
-        // }
 
+            }
+           else if (option == 2){
+            // sell option
+            int selection = 0;
+            while (selection != 1 || selection != 2)
+            {
+                System.out.println("Would you like to see your current items for sale (1) or add a new item to sell (2)");
+                selection = scan.nextInt();
+
+                if (selection == 1)
+                {
+                    signedInUser.printItemsForSale();
+                }
+                else if (selection == 2)
+                {
+                    
+                }
+            }
+            
+        }else if( option == 3){
+            //cart();     
+        } 
+    else if( option == 4){
+            System.out.println("Logging out...");
+            System.exit(0);
+        }else{
+            System.out.println("Not a valid option");
+        }
     }
-
 }
