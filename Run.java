@@ -16,7 +16,7 @@ public class Run
 
     public static void main(String[] args)
     {
-        User signedInUser;
+        User signedInUser = null;
 
         User nick = new User("Nicholas Tourney", "Nicholas.Tourney@gmail.com", "Nick", "night1");
         User dawit = new User("Dawit Kasy", "Dawit.Kasy@gmail.com", "Dawit", "computer2");
@@ -91,14 +91,28 @@ public class Run
                 }
             }
         }else if (option == 2){
-            sell();
+            // sell option
+            int selection = 0;
+            while (selection != 1 || selection != 2)
+            {
+                System.out.println("Would you like to see your current items for sale (1) or add a new item to sell (2)");
+                selection = scan.nextInt();
+
+                if (selection == 1)
+                {
+                    signedInUser.printItemsForSale();
+                }
+                else if (selection == 2)
+                {
+                    
+                }
+            }
+            
         }else if( option == 3){
-            cart();     
+            //cart();     
         } else{
             System.out.println("Not a valid option");
         }
 
     }
-
-}
 }
