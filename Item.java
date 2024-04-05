@@ -24,7 +24,7 @@ public class Item
 
     public void printItemCategoryAndPrice()
     {
-        System.out.println("Item: " + name + "Category: " + " Price: $" + price);
+        System.out.println("Item: " + name + " Category: " + " Price: $" + price);
     }
 
     public void printItem()

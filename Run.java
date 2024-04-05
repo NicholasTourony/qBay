@@ -23,15 +23,20 @@ public class Run
         ArrayList<Item> itemsDisplay = new ArrayList<Item>();
     
         Item item1 = new Item("Intro to Discrete Math", "Used Textbook", 50.00, dawit);
+        dawit.addItemForSales(item1);
         itemsDisplay.add(item1);
         Item item2 = new Item("Sweatshirt", "Clothing", 30.00, nick);
+        nick.addItemForSales(item2);
         itemsDisplay.add(item2);
         Item item3 = new Item("Macbook", "Electronic", 1200.00, jeremy);
+        jeremy.addItemForSales(item3);
         itemsDisplay.add(item3);
         Item item4 = new Item("Intro to French", "Used Textbook", 60.00, dawit);
+        dawit.addItemForSales(item4);
         itemsDisplay.add(item4);
         Item item5 = new Item("Quinnipiac Cap", "Clothing", 20.00, nick);
         itemsDisplay.add(item5);
+        nick.addItemForSales(item5);
 
         Scanner scan = new Scanner(System.in);
 
@@ -90,6 +95,7 @@ public class Run
                 
                System.out.println("Would you like to\n1.Add item to cart\n2.See more information");
                int decision = scan.nextInt();// asking if they want to add item to cart
+               scan.nextLine();
                    if(decision == 1){
                    signedInUser.addItemToCart(itemsDisplay.get(item-1));
                     } else{
@@ -102,8 +108,9 @@ public class Run
                 while (selection != 1 || selection != 2)
 
                 {
-                    System.out.println("Would you like to see your current items for sale (1) or add a new item to sell (2)");
+                    System.out.println("Would you like to see your current items for sale (1), add a new item to sell (2), or back to the main menu (3)");
                     selection = scan.nextInt();
+                    scan.nextLine();
     
                     if (selection == 1)
                     {
@@ -111,7 +118,23 @@ public class Run
                     }
                     else if (selection == 2)
                     {
-                        
+                        String name;
+                        String category;
+                        double price;
+                        System.out.print("Enter the item name: ");
+                        name = scan.nextLine();
+                        System.out.print("Enter the item category: ");
+                        category = scan.nextLine();
+                        System.out.print("Enter the price: ");
+                        price = scan.nextInt();
+                        scan.nextLine();
+                        Item newItem = new Item(name, category, price, signedInUser);
+                        signedInUser.addItemForSales(newItem);
+                        itemsDisplay.add(newItem);
+                    }
+                    else if (selection == 3)
+                    {
+                        break;
                     }
                 }
             }else if( option == 3){
