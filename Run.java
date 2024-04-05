@@ -16,7 +16,7 @@ public class Run
 
     public static void main(String[] args)
     {
-        User signedInUser;
+        User signedInUser = null;
 
         User nick = new User("Nicholas Tourney", "Nicholas.Tourney@gmail.com", "Nick", "night1");
         User dawit = new User("Dawit Kasy", "Dawit.Kasy@gmail.com", "Dawit", "computer2");
@@ -75,10 +75,8 @@ public class Run
             System.out.println("3 incorrect login attempts, you are locked out!");
             System.exit(0);
         }
-
-
         
-        System.out.println("what would you like to do\n1.Buy\n2.Sell\n3.Cart ");
+        System.out.println("what would you like to do\n1.Buy\n2.Sell\n3.Cart\n4.Logout");
         int option = scan.nextInt();
         if(option == 1){
             itemDisplay();
@@ -90,15 +88,15 @@ public class Run
                     signedInUser.addItemToCart(item1);
                 }
             }
-        }else if (option == 2){
-            sell();
-        }else if( option == 3){
-            cart();     
-        } else{
+        // }else if (option == 2){
+        //     sell();
+        // }else if( option == 3){
+        //     cart();     
+        }else if( option == 4){
+            System.out.println("Logging out...");
+            System.exit(0);
+        }else{
             System.out.println("Not a valid option");
         }
-
     }
-
-}
 }
