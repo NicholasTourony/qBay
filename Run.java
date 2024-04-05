@@ -79,48 +79,65 @@ public class Run
             System.out.println("3 incorrect login attempts, you are locked out!");
             System.exit(0);
         }
-        
-        System.out.println("what would you like to do\n1.Buy\n2.Sell\n3.Cart\n4.Logout");
-        int option = scan.nextInt();
-        if(option == 1){
-            System.out.println("What would you like to buy");
-            itemDisplay(itemsDisplay);
-            int item = scan.nextInt();
-         System.out.println("Would you like to\n1.Add item to cart\n2.See more information");
-                int decision = scan.nextInt();// asking if they want to add item to cart
-                if(decision == 1){
-                    signedInUser.addItemToCart(item1);
-                } else{
+        while (true){
+            System.out.println("what would you like to do\n1.Buy\n2.Sell\n3.Cart\n4.Logout");
+            int option = scan.nextInt();
+            scan.nextLine();
+            if(option == 1){
+                itemDisplay(itemsDisplay);
+                int item = scan.nextInt();
+                scan.nextLine();
+                
+               System.out.println("Would you like to\n1.Add item to cart\n2.See more information");
+               int decision = scan.nextInt();// asking if they want to add item to cart
+                   if(decision == 1){
+                   signedInUser.addItemToCart(item1);
+                    } else{
                     itemsDisplay.get(item-1).printItem();
-                }
-
             }
-           else if (option == 2){
-            // sell option
-            int selection = 0;
-            while (selection != 1 || selection != 2)
-            {
-                System.out.println("Would you like to see your current items for sale (1) or add a new item to sell (2)");
-                selection = scan.nextInt();
+                
+            }else if (option == 2){
+                // sell option
+                int selection = 0;
+                while (selection != 1 || selection != 2)
 
-                if (selection == 1)
                 {
-                    signedInUser.printItemsForSale();
+                    System.out.println("Would you like to see your current items for sale (1) or add a new item to sell (2)");
+                    selection = scan.nextInt();
+    
+                    if (selection == 1)
+                    {
+                        signedInUser.printItemsForSale();
+                    }
+                    else if (selection == 2)
+                    {
+                        
+                    }
                 }
-                else if (selection == 2)
+            }else if( option == 3){
+                System.out.println("Would you like to checkout?\nYes or No");
+                signedInUser.printCart();
+                double cartPrice = signedInUser.getCartPrice();
+                String checkout = scan.nextLine();
+                
+                if(checkout.equals("Yes"))
+                {
+                    System.out.println("Your total is: $" + cartPrice + "\nThank you for shopping with qBay!");
+                }
+                else if(checkout.equals("No"))
                 {
                     
                 }
+                else
+                {
+                    System.out.println("Invalid input");
+                }
+            }else if( option == 4){
+                System.out.println("Logging out...");
+                System.exit(0);
+            }else{
+                System.out.println("Not a valid option");
             }
-            
-        }else if( option == 3){
-            //cart();     
-        } 
-    else if( option == 4){
-            System.out.println("Logging out...");
-            System.exit(0);
-        }else{
-            System.out.println("Not a valid option");
         }
     }
 }
