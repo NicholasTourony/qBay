@@ -40,7 +40,7 @@ public class Run
 
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("Welcome!");
+        System.out.println("                \n/  \\    /  \\ ____ |  |   ____  ____   _____   ____  \n\\   \\/\\/   // __ \\|  | _/ ___\\/  _ \\ /     \\_/ __ \\ \n \\        /\\  ___/|  |_\\  \\__(  <_> )  Y Y  \\  ___/ \n  \\__/\\  /  \\___  >____/\\___  >____/|__|_|  /\\___  >\n       \\/       \\/          \\/            \\/     \\/ ");
 
         int checks = 1;
         boolean correctLogin = false; 
@@ -94,13 +94,21 @@ public class Run
                 int item = scan.nextInt();
                 scan.nextLine();
                 
-               System.out.println("Would you like to\n1.Add item to cart\n2.See more information");
+               System.out.println("Would you like to\n1.Add item to cart\n2.See more information\n3.Return to main Menu");
                int decision = scan.nextInt();// asking if they want to add item to cart
                scan.nextLine();
                    if(decision == 1){
                    signedInUser.addItemToCart(itemsDisplay.get(item-1));
-                    } else{
+                    } else if (decision == 2){
                     itemsDisplay.get(item-1).printItem();
+                    System.out.println("Would You like to add Item to cart(1)");
+                        int add = scan.nextInt();
+                        if(add == 1){
+                            signedInUser.addItemToCart(itemsDisplay.get(item-1));
+                        }
+                    }
+                    if(decision == 3){
+                        
                     }
                     
                 
