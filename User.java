@@ -49,6 +49,15 @@ public class User
             cart.get(x).printItemAndPrice();;
         }
     }
+    public double getCartPrice()
+    {
+        double total = 0;
+        for (int x = 0; x < cart.size(); x++)
+        {
+            total = total + cart.get(x).price;
+        }
+        return total;
+    }
 
     public void printItemsForSale()
     {
