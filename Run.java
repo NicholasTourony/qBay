@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 public class Run
 {
@@ -5,29 +6,32 @@ public class Run
 
 
 
-    public static void itemDisplay(){
-        System.out.println("Items for Sale\n===============\n1.Intro to Discrete Math");
-        System.out.println("2.Sweatshirt");
-        System.out.println("3.Macbook");
-        System.out.println("4.Intro to French\n5.Quinnipiac Cap\nPlease choose an item");
+    public static void itemDisplay(ArrayList<Item> itemsDisplay){
+        for (int count = 0; count < itemsDisplay.size(); count++){
+           System.out.print((count+1)+". "); itemsDisplay.get(count).printItemName();               
+        }
     }
-
-   
 
     public static void main(String[] args)
     {
-        User signedInUser;
+        User signedInUser = null;
 
         User nick = new User("Nicholas Tourney", "Nicholas.Tourney@gmail.com", "Nick", "night1");
         User dawit = new User("Dawit Kasy", "Dawit.Kasy@gmail.com", "Dawit", "computer2");
         User jeremy = new User("Jeremy Wiening", "Jeremy.Wiening@gmail.com", "Jeremy", "science1");
 
+        ArrayList<Item> itemsDisplay = new ArrayList<Item>();
     
         Item item1 = new Item("Intro to Discrete Math", "Used Textbook", 50.00, dawit);
+        itemsDisplay.add(item1);
         Item item2 = new Item("Sweatshirt", "Clothing", 30.00, nick);
+        itemsDisplay.add(item2);
         Item item3 = new Item("Macbook", "Electronic", 1200.00, jeremy);
+        itemsDisplay.add(item3);
         Item item4 = new Item("Intro to French", "Used Textbook", 60.00, dawit);
+        itemsDisplay.add(item4);
         Item item5 = new Item("Quinnipiac Cap", "Clothing", 20.00, nick);
+        itemsDisplay.add(item5);
 
         Scanner scan = new Scanner(System.in);
 
@@ -81,24 +85,25 @@ public class Run
         System.out.println("what would you like to do\n1.Buy\n2.Sell\n3.Cart ");
         int option = scan.nextInt();
         if(option == 1){
-            itemDisplay();
+            System.out.println("What would you like to buy");
+            itemDisplay(itemsDisplay);
             int item = scan.nextInt();
-            if(item == 1){
-                System.out.println("Would you like to\n1.Add item to cart\n2.See more information");
+         System.out.println("Would you like to\n1.Add item to cart\n2.See more information");
                 int decision = scan.nextInt();// asking if they want to add item to cart
                 if(decision == 1){
                     signedInUser.addItemToCart(item1);
+                } else{
+                    itemsDisplay.get(item-1).printItem();
                 }
-            }
-        }else if (option == 2){
-            sell();
-        }else if( option == 3){
-            cart();     
-        } else{
-            System.out.println("Not a valid option");
-        }
+            } 
+        // }else if (option == 2){
+        //     sell();
+        // }else if( option == 3){
+        //     cart();     
+        // } else{
+        //     System.out.println("Not a valid option");
+        // }
 
     }
 
-}
 }

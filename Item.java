@@ -13,6 +13,10 @@ public class Item
         this.seller = seller;
     }
 
+    public void printItemName(){
+        System.out.println(name);
+    }
+
     public void printItemAndPrice()
     {
         System.out.println("Item: " + name + " Price: $" + price);
