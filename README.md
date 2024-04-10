@@ -1,4 +1,4 @@
-#What is this project?
+# What is this project?
 qBay is a eBay clone but for the use of Quinnipiac students. Students have accounts where they can log into the application, purchase up for sale items, and list their own items for sale.
 
 ## How to run this project?
